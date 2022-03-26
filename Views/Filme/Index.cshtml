@@ -1,0 +1,46 @@
+﻿@model List<FilmeModel>
+
+@{
+    ViewData["Title"] = "Recomendações de filmes";
+}
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-danger" role="button" asp-controller="Filme" asp-action="Cadastrar">Recomendar um filme</a>
+    </div>
+
+    <br />
+    <h1 class="display-4">Recomendações de filmes</h1>
+    <br />
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Gênero</th>
+          <th scope="col">Ano</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (Model != null && Model.Any() )
+            {
+                foreach(var filme in Model)
+                {
+                     <tr>
+                      <th scope="row">@filme.Id</th>
+                      <td>@filme.Nome</td>
+                      <td>@filme.Genero</td>
+                      <td>@filme.Ano</td>
+                      <td>
+                            <a class="btn btn-warning btn-sm" role="button" asp-route-id="@filme.Id" asp-controller="Filme" asp-action="Editar"> Editar</a>
+                            <a class="btn btn-danger btn-sm" role="button" asp-route-id="@filme.Id" asp-controller="Filme" asp-action="ApagarConfirmacao">Apagar</a>
+                      </td>
+                    </tr>
+                }
+            }
+           
+
+      </tbody>
+    </table>
+</div>
