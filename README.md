@@ -1,2 +1,2 @@
 # FilmeSugest
-Aplicação para recomendar filmes criada em C# .Net, Asp.Net, Entity Framework.
+Aplicação para recomendação de filmes criada em C# .Net, Asp.Net Core, Entity Framework e SQL Server.
